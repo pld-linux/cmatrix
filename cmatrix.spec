@@ -30,7 +30,7 @@ twice, and I'm pondering seeing it again before it comes out on VHS.
 aclocal
 autoconf
 automake -a -c
-CFLAGS="%{?debug:-O0 -g}%{!?debug:$RPM_OPT_FLAGS} -I%{_includedir}/ncurses"
+CFLAGS="%{rpmcflags} -I%{_includedir}/ncurses"
 %configure
 %{__make}
 
