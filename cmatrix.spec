@@ -39,7 +39,7 @@ fanem komputerów i sci-fi w ogólno¶ci - biegnij zobaczyæ ten film!!
 
 %build
 rm -f missing
-aclocal
+%{__aclocal}
 %{__autoconf}
 %{__automake}
 CFLAGS="%{rpmcflags} -I%{_includedir}/ncurses"
@@ -57,8 +57,7 @@ install cmatrix.1 $RPM_BUILD_ROOT%{_mandir}/man1
 install mtx.pcf $RPM_BUILD_ROOT%{_datadir}/fonts/misc
 install matrix.psf.gz $RPM_BUILD_ROOT%{_datadir}/consolefonts
 
-gzip -9nf NEWS README TODO ChangeLog \
-	$RPM_BUILD_ROOT%{_datadir}/fonts/misc/*
+gzip -9nf $RPM_BUILD_ROOT%{_datadir}/fonts/misc/*
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -73,7 +72,7 @@ cd %{_datadir}/fonts/misc/;
 
 %files
 %defattr(644,root,root,755)
-%doc *.gz
+%doc NEWS README TODO ChangeLog
 %attr(755,root,root) %{_bindir}/*
 %{_datadir}/fonts/misc/*
 %{_datadir}/consolefonts/*
