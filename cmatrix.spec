@@ -40,8 +40,8 @@ fanem komputerów i sci-fi w ogólno¶ci - biegnij zobaczyæ ten film!!
 %build
 rm -f missing
 aclocal
-autoconf
-automake -a -c -f
+%{__autoconf}
+%{__automake}
 CFLAGS="%{rpmcflags} -I%{_includedir}/ncurses"
 %configure \
 	--with-setfont
