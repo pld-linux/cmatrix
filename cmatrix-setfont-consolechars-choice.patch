@@ -1,0 +1,45 @@
+--- ./configure.in.org	Mon Apr  1 02:54:02 2002
++++ ./configure.in	Sat May 11 17:00:32 2002
+@@ -61,12 +61,39 @@
+ fi
+ 
+ dnl Stuff we want at the end so people can actually see it...
+-AC_PATH_PROG(CONSOLECHARS, consolechars, "", $PATH:/usr/bin:/usr/local/bin/sbin:/usr/sbin)
+-AC_PATH_PROG(SETFONT, setfont, "", $PATH:/usr/bin:/usr/local/bin/sbin:/usr/sbin)
++AC_ARG_WITH(consolechars,
++	    [  --with-consolechars	Compile program to use consolechars from console-utils],
++	[AC_PATH_PROG(CONSOLECHARS, consolechars, "", $PATH:/usr/bin:/usr/local/bin/sbin:/usr/sbin)
++	if test x$CONSOLECHARS = x; then
++		AC_MSG_WARN([
++			     
++*** You want to use consolechars, but none was found
++*** If you are using Linux, the package containing this program is 
++*** usually called console-utils
++			])
++	fi
++	AC_DEFINE_UNQUOTED(HAVE_CONSOLECHARS, $CONSOLECHARS)],
++	[AC_PATH_PROG(CONSOLECHARS, consolechars, "", $PATH:/usr/bin:/usr/local/bin/sbin:/usr/sbin)]
++)
++
++AC_ARG_WITH(setfont,
++	    [  --with-setfont	Compile program to use setfont from kbd],
++	[AC_PATH_PROG(SETFONT, setfont, "", $PATH:/usr/bin:/usr/local/bin/sbin:/usr/sbin)
++	if test x$SETFONT = x; then
++		AC_MSG_WARN([
++			     
++*** You want to use setfont, but none was found
++*** If you are using Linux, the package containing this program is
++*** usually called kbd or kbd-utils
++			     ])
++	fi
++	AC_DEFINE_UNQUOTED(HAVE_CONSOLECHARS, $CONSOLECHARS)],
++	[AC_PATH_PROG(SETFONT, setfont, "", $PATH:/usr/bin:/usr/local/bin/sbin:/usr/sbin)]
++)
+ 
+ if test x$CONSOLECHARS = x; then
+     if test x$SETFONT = x; then
+-	AC_MSG_WARN([
++	    AC_MSG_WARN([
+ 
+ *** neither the consolechars nor the setfont program was not found.  You
+ *** will not be able to see the characters in the matrix font in the
