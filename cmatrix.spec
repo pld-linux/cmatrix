@@ -1,6 +1,6 @@
 Summary:	CMatrix - show a scrolling 'Matrix' like screen in Linux (curses based)
 Name:		cmatrix
-Version:	1.1a
+Version:	1.1b
 Release:	1
 License:	GPL
 Group:		Utilities/Console
