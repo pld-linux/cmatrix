@@ -26,10 +26,10 @@ computers or sci-fi in general, go see this movie!!!
 %description -l pl
 What is CMatrix? :-)
 
-CMatrix zosta³ napisany w jeden wieczór by¶ nie musia³ uruchamiaæ M$ 
-Wind*ws, aby zobaczyæ na konsoli interesuj±c efekt spadaj±cych znaków 
-znany z filmu "Matrix". Je¿eli nie widzia³e¶ tego filmu, a jeste¶ fanem
-komputerów i sci-fi w ogólno¶ci - biegnij zobaczyæ ten film!! 
+CMatrix zosta³ napisany w jeden wieczór by¶ nie musia³ uruchamiaæ M$
+Wind*ws, aby zobaczyæ na konsoli interesuj±c efekt spadaj±cych znaków
+znany z filmu "Matrix". Je¿eli nie widzia³e¶ tego filmu, a jeste¶
+fanem komputerów i sci-fi w ogólno¶ci - biegnij zobaczyæ ten film!!
 
 %prep
 %setup -q
