@@ -2,17 +2,18 @@ Summary:	CMatrix - show a scrolling 'Matrix' like screen in Linux (curses based)
 Summary(pl):	CMatrix - poka¿ efekt spadaj±cych znaków znany z filmu "Matrix"
 Name:		cmatrix
 Version:	1.1b
-Release:	4
-License:	GPL
+Release:	5
+License:	GPL v2
 Group:		Applications/Console
 Group(de):	Applikationen/Konsole
 Group(pl):	Aplikacje/Konsola
 Source0:	http://www.asty.org/cmatrix/dist/%{name}-%{version}.tar.gz
 Patch0:		%{name}-DESTDIR.patch
 URL:		http://www.asty.org/cmatrix/
-BuildRequires:	ncurses-devel >= 5.0
 BuildRequires:	autoconf
 BuildRequires:	automake
+BuildRequires:	kbd
+BuildRequires:	ncurses-devel >= 5.0
 Prereq:		/usr/X11R6/bin/mkfontdir
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -22,19 +23,22 @@ What is CMatrix? :-)
 CMatrix is a program I wrote one evening because I didn't want to have
 to run Wind*ws to see the cool scrolling lines from 'The Matrix', my
 fave movie. If you haven't seen this movie and you are a fan of
-computers or sci-fi in general, go see this movie!!! I have seen it
-twice, and I'm pondering seeing it again before it comes out on VHS.
+computers or sci-fi in general, go see this movie!!!
 
 %description -l pl
-CMatrix zosta³ napisany by¶ nie musia³ uruchamiaæ MS Windows aby
-zobaczyæ na konsoli interesuj±c efekt spadaj±cych znaków znany z filmu
-"Matrix".
+What is CMatrix? :-)
+
+CMatrix zosta³ napisany w jeden wieczór by¶ nie musia³ uruchamiaæ M$ 
+Wind*ws, aby zobaczyæ na konsoli interesuj±c efekt spadaj±cych znaków 
+znany z filmu "Matrix". Je¿eli nie widzia³e¶ tego filmu, a jeste¶ fanem
+komputerów i sci-fi w ogólno¶ci - biegnij zobaczyæ ten film!! 
 
 %prep
 %setup -q
 %patch0 -p1
 
 %build
+rm -f missing
 aclocal
 autoconf
 automake -a -c
@@ -52,7 +56,7 @@ install cmatrix.1 $RPM_BUILD_ROOT%{_mandir}/man1
 install mtx.pcf $RPM_BUILD_ROOT%{_datadir}/fonts/misc
 install matrix.psf.gz $RPM_BUILD_ROOT%{_datadir}/consolefonts
 
-gzip -9nf NEWS README README.fonts TODO \
+gzip -9nf NEWS README README.fonts TODO ChangeLog \
 	$RPM_BUILD_ROOT%{_datadir}/fonts/misc/*
 
 %clean
