@@ -42,6 +42,7 @@ rm -f missing
 aclocal
 %{__autoconf}
 %{__automake}
+CFLAGS="%{rpmcflags} -I%{_includedir}/ncurses"
 %configure \
 	--with-setfont
 %{__make}
