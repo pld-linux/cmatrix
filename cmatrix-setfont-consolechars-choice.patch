@@ -1,6 +1,7 @@
---- ./configure.in.org	Mon Apr  1 02:54:02 2002
-+++ ./configure.in	Sat May 11 17:00:32 2002
-@@ -61,12 +61,39 @@
+diff -Nru cmatrix-1.2a.orig/configure.in cmatrix-1.2a/configure.in
+--- cmatrix-1.2a.orig/configure.in	Mon Apr  1 02:54:02 2002
++++ cmatrix-1.2a/configure.in	Mon Sep 23 10:28:39 2002
+@@ -61,12 +61,38 @@
  fi
  
  dnl Stuff we want at the end so people can actually see it...
@@ -31,8 +32,7 @@
 +*** If you are using Linux, the package containing this program is
 +*** usually called kbd or kbd-utils
 +			     ])
-+	fi
-+	AC_DEFINE_UNQUOTED(HAVE_CONSOLECHARS, $CONSOLECHARS)],
++	fi],
 +	[AC_PATH_PROG(SETFONT, setfont, "", $PATH:/usr/bin:/usr/local/bin/sbin:/usr/sbin)]
 +)
  
