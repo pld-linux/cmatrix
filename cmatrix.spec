@@ -1,12 +1,13 @@
 Summary:	CMatrix - show a scrolling 'Matrix' like screen in Linux (curses based)
 Name:		cmatrix
 Version:	1.1b
-Release:	3
+Release:	4
 License:	GPL
-Group:		Utilities/Console
-Group(pl):	Narzêdzia/Konsola
+Group:		Applications/Console
+Group(de):	Applikationen/Konsole
+Group(pl):	Aplikacje/Konsola
 Source0:	http://www.asty.org/cmatrix/dist/%{name}-%{version}.tar.gz
-Patch0:		cmatrix-DESTDIR.patch
+Patch0:		%{name}-DESTDIR.patch
 URL:		http://www.asty.org/cmatrix/
 BuildRequires:	ncurses-devel >= 5.0
 Prereq:		/usr/X11R6/bin/mkfontdir
@@ -26,22 +27,24 @@ twice, and I'm pondering seeing it again before it comes out on VHS.
 %patch0 -p1
 
 %build
-automake
-CFLAGS="$RPM_OPT_FLAGS -I/usr/include/ncurses"
-LDFLAGS="-s"
-export CFLAGS LDFLAGS
+aclocal
+autoconf
+automake -a -c
+CFLAGS="$RPM_OPT_FLAGS -I%{_includedir}/ncurses"
+export CFLAGS
 %configure
 %{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
-
-%{__make} install \
-	DESTDIR=$RPM_BUILD_ROOT \
-	Xmiscfontsdir=/usr/share/fonts/misc
+install -d $RPM_BUILD_ROOT{%{_datadir}/{consolefonts,fonts/misc},%{_bindir}} \
+	$RPM_BUILD_ROOT%{_mandir}/man1
+install cmatrix $RPM_BUILD_ROOT%{_bindir}
+install cmatrix.1 $RPM_BUILD_ROOT%{_mandir}/man1
+install mtx.pcf $RPM_BUILD_ROOT%{_datadir}/fonts/misc
+install matrix.psf.gz $RPM_BUILD_ROOT%{_datadir}/consolefonts
 
 gzip -9nf NEWS README README.fonts TODO \
-	$RPM_BUILD_ROOT%{_mandir}/man1/* \
 	$RPM_BUILD_ROOT%{_datadir}/fonts/misc/*
 
 %post
@@ -60,4 +63,5 @@ rm -rf $RPM_BUILD_ROOT
 %doc *.gz
 %attr(755,root,root) %{_bindir}/*
 %{_datadir}/fonts/misc/*
+%{_datadir}/consolefonts/*
 %{_mandir}/man1/*
