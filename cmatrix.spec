@@ -39,7 +39,7 @@ fanem komputerów i sci-fi w ogólno¶ci - biegnij zobaczyæ ten film!!
 rm -f missing
 aclocal
 autoconf
-automake -a -c
+automake -a -c -f
 CFLAGS="%{rpmcflags} -I%{_includedir}/ncurses"
 %configure
 %{__make}
