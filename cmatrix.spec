@@ -5,8 +5,6 @@ Version:	1.1b
 Release:	5
 License:	GPL v2
 Group:		Applications/Console
-Group(de):	Applikationen/Konsole
-Group(pl):	Aplikacje/Konsola
 Source0:	http://www.asty.org/cmatrix/dist/%{name}-%{version}.tar.gz
 Patch0:		%{name}-DESTDIR.patch
 URL:		http://www.asty.org/cmatrix/
