@@ -30,8 +30,7 @@ twice, and I'm pondering seeing it again before it comes out on VHS.
 aclocal
 autoconf
 automake -a -c
-CFLAGS="$RPM_OPT_FLAGS -I%{_includedir}/ncurses"
-export CFLAGS
+CFLAGS="%{?debug:-O0 -g}%{!?debug:$RPM_OPT_FLAGS} -I%{_includedir}/ncurses"
 %configure
 %{__make}
 
@@ -39,6 +38,7 @@ export CFLAGS
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{_datadir}/{consolefonts,fonts/misc},%{_bindir}} \
 	$RPM_BUILD_ROOT%{_mandir}/man1
+
 install cmatrix $RPM_BUILD_ROOT%{_bindir}
 install cmatrix.1 $RPM_BUILD_ROOT%{_mandir}/man1
 install mtx.pcf $RPM_BUILD_ROOT%{_datadir}/fonts/misc
