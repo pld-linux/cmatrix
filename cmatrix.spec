@@ -6,6 +6,7 @@ Release:	3
 License:	GPL v2
 Group:		Applications/Terminal
 Source0:	http://www.asty.org/cmatrix/dist/%{name}-%{version}.tar.gz
+# Source0-md5:	ebfb5733104a258173a9ccf2669968a1
 Patch0:		%{name}-DESTDIR.patch
 Patch1:		%{name}-setfont-consolechars-choice.patch
 URL:		http://www.asty.org/cmatrix/
