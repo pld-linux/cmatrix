@@ -11,6 +11,8 @@ Source0:	http://www.asty.org/cmatrix/dist/%{name}-%{version}.tar.gz
 Patch0:		%{name}-DESTDIR.patch
 URL:		http://www.asty.org/cmatrix/
 BuildRequires:	ncurses-devel >= 5.0
+BuildRequires:	autoconf
+BuildRequires:	automake
 Prereq:		/usr/X11R6/bin/mkfontdir
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -24,7 +26,6 @@ computers or sci-fi in general, go see this movie!!! I have seen it
 twice, and I'm pondering seeing it again before it comes out on VHS.
 
 %description -l pl
-
 CMatrix zosta³ napisany by¶ nie musia³ uruchamiaæ MS Windows aby
 zobaczyæ na konsoli interesuj±c efekt spadaj±cych znaków znany z filmu
 "Matrix".
@@ -54,6 +55,9 @@ install matrix.psf.gz $RPM_BUILD_ROOT%{_datadir}/consolefonts
 gzip -9nf NEWS README README.fonts TODO \
 	$RPM_BUILD_ROOT%{_datadir}/fonts/misc/*
 
+%clean
+rm -rf $RPM_BUILD_ROOT
+
 %post
 cd %{_datadir}/fonts/misc/;
 /usr/X11R6/bin/mkfontdir
@@ -61,9 +65,6 @@ cd %{_datadir}/fonts/misc/;
 %postun
 cd %{_datadir}/fonts/misc/;
 /usr/X11R6/bin/mkfontdir
-
-%clean
-rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
