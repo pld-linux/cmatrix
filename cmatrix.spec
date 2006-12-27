@@ -13,7 +13,7 @@ URL:		http://www.asty.org/cmatrix/
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	ncurses-devel >= 5.0
-Requires(post,postun):	/usr/bin/mkfontdir
+Requires(post,postun):	fontpostinst
 Requires:	kbd
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -39,7 +39,6 @@ fanem komputerów i sci-fi w ogólno¶ci - biegnij zobaczyæ ten film!!
 %patch1 -p1
 
 %build
-rm -f missing
 %{__aclocal}
 %{__autoconf}
 %{__automake}
@@ -64,14 +63,10 @@ gzip -9nf $RPM_BUILD_ROOT%{_datadir}/fonts/misc/*
 rm -rf $RPM_BUILD_ROOT
 
 %post
-cd %{_datadir}/fonts/misc
-umask 002
-/usr/bin/mkfontdir
+fontpostinst misc
 
 %postun
-cd %{_datadir}/fonts/misc
-umask 002
-/usr/bin/mkfontdir
+fontpostinst misc
 
 %files
 %defattr(644,root,root,755)
