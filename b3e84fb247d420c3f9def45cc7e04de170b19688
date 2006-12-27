@@ -1,0 +1,4 @@
+- fixed setfont-consolechars-choice patch
+- removed setting CFLAGS
+- release 3
+  STBR
