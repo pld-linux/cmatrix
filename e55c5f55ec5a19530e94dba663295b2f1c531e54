@@ -1,0 +1,7 @@
+- Release 5
+- License modified
+- Rebuild with required kbd, not console-tools (BTS #57)
+- Improved translation
+- rm -f missing added
+- more docs
+  STB
