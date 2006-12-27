@@ -64,11 +64,11 @@ gzip -9nf $RPM_BUILD_ROOT%{_datadir}/fonts/misc/*
 rm -rf $RPM_BUILD_ROOT
 
 %post
-cd %{_datadir}/fonts/misc/;
+cd %{_datadir}/fonts/misc
 /usr/bin/mkfontdir
 
 %postun
-cd %{_datadir}/fonts/misc/;
+cd %{_datadir}/fonts/misc
 /usr/bin/mkfontdir
 
 %files
