@@ -65,10 +65,12 @@ rm -rf $RPM_BUILD_ROOT
 
 %post
 cd %{_datadir}/fonts/misc
+umask 002
 /usr/bin/mkfontdir
 
 %postun
 cd %{_datadir}/fonts/misc
+umask 002
 /usr/bin/mkfontdir
 
 %files
