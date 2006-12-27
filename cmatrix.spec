@@ -2,7 +2,7 @@ Summary:	CMatrix - show a scrolling 'Matrix' like screen in Linux (curses based)
 Summary(pl):	CMatrix - pokazuje efekt spadaj±cych znaków znany z filmu "Matrix"
 Name:		cmatrix
 Version:	1.2a
-Release:	5
+Release:	6
 License:	GPL v2
 Group:		Applications/Terminal
 Source0:	http://www.asty.org/cmatrix/dist/%{name}-%{version}.tar.gz
@@ -13,7 +13,7 @@ URL:		http://www.asty.org/cmatrix/
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	ncurses-devel >= 5.0
-Requires(post,postun):	/usr/X11R6/bin/mkfontdir
+Requires(post,postun):	/usr/bin/mkfontdir
 Requires:	kbd
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -65,11 +65,11 @@ rm -rf $RPM_BUILD_ROOT
 
 %post
 cd %{_datadir}/fonts/misc/;
-/usr/X11R6/bin/mkfontdir
+/usr/bin/mkfontdir
 
 %postun
 cd %{_datadir}/fonts/misc/;
-/usr/X11R6/bin/mkfontdir
+/usr/bin/mkfontdir
 
 %files
 %defattr(644,root,root,755)
