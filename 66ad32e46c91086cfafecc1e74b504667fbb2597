@@ -1,0 +1,4 @@
+- release 2
+- added setfont-consolechars-choice.patch (new option used)
+- kbd is now required
+  STBR
