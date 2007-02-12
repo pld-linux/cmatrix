@@ -1,5 +1,5 @@
 Summary:	CMatrix - show a scrolling 'Matrix' like screen in Linux (curses based)
-Summary(pl):	CMatrix - pokazuje efekt spadaj±cych znaków znany z filmu "Matrix"
+Summary(pl.UTF-8):   CMatrix - pokazuje efekt spadajÄ…cych znakÃ³w znany z filmu "Matrix"
 Name:		cmatrix
 Version:	1.2a
 Release:	6
@@ -25,13 +25,13 @@ to run Wind*ws to see the cool scrolling lines from 'The Matrix', my
 fave movie. If you haven't seen this movie and you are a fan of
 computers or sci-fi in general, go see this movie!!!
 
-%description -l pl
+%description -l pl.UTF-8
 What is CMatrix? :-)
 
-CMatrix zosta³ napisany w jeden wieczór by¶ nie musia³ uruchamiaæ M$
-Wind*ws, aby zobaczyæ na konsoli interesuj±c efekt spadaj±cych znaków
-znany z filmu "Matrix". Je¿eli nie widzia³e¶ tego filmu, a jeste¶
-fanem komputerów i sci-fi w ogólno¶ci - biegnij zobaczyæ ten film!!
+CMatrix zostaÅ‚ napisany w jeden wieczÃ³r byÅ› nie musiaÅ‚ uruchamiaÄ‡ M$
+Wind*ws, aby zobaczyÄ‡ na konsoli interesujÄ…c efekt spadajÄ…cych znakÃ³w
+znany z filmu "Matrix". JeÅ¼eli nie widziaÅ‚eÅ› tego filmu, a jesteÅ›
+fanem komputerÃ³w i sci-fi w ogÃ³lnoÅ›ci - biegnij zobaczyÄ‡ ten film!!
 
 %prep
 %setup -q
