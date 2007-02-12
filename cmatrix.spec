@@ -1,5 +1,5 @@
 Summary:	CMatrix - show a scrolling 'Matrix' like screen in Linux (curses based)
-Summary(pl.UTF-8):   CMatrix - pokazuje efekt spadających znaków znany z filmu "Matrix"
+Summary(pl.UTF-8):	CMatrix - pokazuje efekt spadających znaków znany z filmu "Matrix"
 Name:		cmatrix
 Version:	1.2a
 Release:	6
