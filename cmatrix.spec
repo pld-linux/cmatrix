@@ -2,7 +2,7 @@ Summary:	CMatrix - show a scrolling 'Matrix' like screen in Linux (curses based)
 Summary(pl.UTF-8):	CMatrix - pokazuje efekt spadających znaków znany z filmu "Matrix"
 Name:		cmatrix
 Version:	1.2a
-Release:	6
+Release:	7
 License:	GPL v2
 Group:		Applications/Terminal
 Source0:	http://www.asty.org/cmatrix/dist/%{name}-%{version}.tar.gz
@@ -49,13 +49,14 @@ CFLAGS="%{rpmcflags} -I/usr/include/ncurses"
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{_datadir}/{consolefonts,fonts/misc},%{_bindir}} \
-	$RPM_BUILD_ROOT%{_mandir}/man1
+install -d $RPM_BUILD_ROOT{%{_datadir}/fonts/misc,%{_bindir}} \
+	$RPM_BUILD_ROOT%{_mandir}/man1 \
+	$RPM_BUILD_ROOT/lib/kbd/consolefonts
 
 install cmatrix $RPM_BUILD_ROOT%{_bindir}
 install cmatrix.1 $RPM_BUILD_ROOT%{_mandir}/man1
 install mtx.pcf $RPM_BUILD_ROOT%{_datadir}/fonts/misc
-install matrix.psf.gz $RPM_BUILD_ROOT%{_datadir}/consolefonts
+install matrix.psf.gz $RPM_BUILD_ROOT/lib/kbd/consolefonts
 
 gzip -9nf $RPM_BUILD_ROOT%{_datadir}/fonts/misc/*
 
@@ -73,5 +74,5 @@ fontpostinst misc
 %doc NEWS README TODO ChangeLog
 %attr(755,root,root) %{_bindir}/*
 %{_datadir}/fonts/misc/*
-%{_datadir}/consolefonts/*
+/lib/kbd/consolefonts/*
 %{_mandir}/man1/*
