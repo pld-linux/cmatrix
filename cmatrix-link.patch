@@ -1,0 +1,11 @@
+--- cmatrix-1.2a/configure.in~	2010-09-20 13:04:06.262980080 +0200
++++ cmatrix-1.2a/configure.in	2010-09-20 13:05:13.735482420 +0200
+@@ -148,7 +148,7 @@
+ 
+ dnl Parse any configure options
+ 
+-LIBS="$LIBS $CURSES_LIB"
++LIBS="$LIBS $CURSES_LIB -ltinfo"
+ AC_ARG_ENABLE(debug, [  --enable-debug          Enable debugging (def disabled)],)
+ 
+ AC_SUBST(CURSES_LIB)
